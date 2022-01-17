@@ -1,0 +1,497 @@
+html,
+body {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+    font-family: "Source Sans Pro";
+}
+
+.site {
+    height: 100%;
+    overflow-x: hidden;
+    background-color: #EDEDED;
+    z-index: -1;
+}
+
+/* --------------------------------- BANNER --------------------------------- */
+
+.section13 {
+    height: 180vh;
+    width: 100vw;
+    position: relative;
+}
+
+.section13::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 90%;
+    background-image: url("../IMG/Vague2.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.section13__title {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.section13__title h1 {
+    font-weight: 600;
+    font-size: 10vw;
+    letter-spacing: 3px;
+    width: fit-content;
+    color: #1D1D1B;
+    width: 76vw;
+}
+
+.section13__topbar {
+    position: absolute;
+    display: flex;
+    top: 15px;
+    right: 20px;
+    width: 150px;
+    justify-content: space-between;
+}
+
+.section13__topbar a {
+    align-self: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #3A3232;
+    padding-top: 4px;
+}
+
+
+/* ------------------------------- BURGER-MENU ------------------------------ */
+
+#burger-icon.burger {
+    cursor: pointer;
+}
+
+.burger:after,
+.burger:before,
+.burger div {
+
+    background-color: #3A3232;
+    content: '';
+    display: block;
+    height: 3px;
+    width: 29px;
+    margin: 5px 0;
+    transition: all .2s ease-in-out;
+}
+
+.burger__icon--active {
+    overflow-y: hidden;
+}
+
+.burger__icon--active:before {
+    transform: translateY(12px) rotate(135deg);
+}
+
+.burger__icon--active:after {
+    transform: translateY(-12px) rotate(-135deg);
+}
+
+.burger__icon--active div {
+    transform: scale(0);
+}
+
+.section13__inscription {
+    width: 70vw;
+    height: 480px;
+    margin: 0 auto;
+    margin-top: 22vh;
+    padding: 15px 35px;
+    background-color: #F5F5F5;
+    border-radius: 3%;
+    filter: drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.25));
+}
+
+.section13__inscription h2 {
+    font-weight: 800;
+    padding-top: 15px;
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+}
+
+.section13__inscription .input-data3 {
+    height: 40px;
+    width: 100%;
+    position: relative;
+    margin-top: 20px;
+}
+
+.section13__inscription .input-data3 input {
+    height: 100%;
+    width: 100%;
+    border: none;
+    font-size: 15px;
+    border-bottom: 1px solid #000000;
+    background: transparent;
+    color: black;
+}
+
+.input-data3 input:focus~label, .input-data3 textarea:focus~label, .input-data3 textarea:valid~label, .input-data3 input:valid~label {
+    transform: translateY(-30px);
+    transition: transform 0.4s ease;
+    font-size: 0.9rem;
+    color: #42AB9E;
+}
+
+.section13__inscription .input-data3 label {
+    position: absolute;
+    bottom: 0;
+    color: #000000;
+    left: 0;
+    font-size: 1.1rem;
+    pointer-events: none;
+}
+
+.section13__inscription .input-data3 .underline3 {
+    position: absolute;
+    bottom: -1px;
+    height: 1.5px;
+    width: 100%;
+}
+
+.input-data3 .underline3:before {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    background: #42AB9E;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.input-data3 input:focus~.underline3:before, .input-data3 textarea:focus~.underline3:before, .input-data3 textarea:valid~.underline3:before, .input-data3 input:valid~.underline3:before {
+    transform: scaleX(1);
+}
+
+input:focus-visible {
+    outline: none;
+}
+
+textarea:focus-visible {
+    outline: none;
+}
+
+input[type="checkbox"] + label {
+    font-weight: 600;
+}
+
+.section13__inscription__bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 20px;
+    height: 120px;
+    text-align: left;
+    bottom: 0;
+}
+
+.section13__inscription__bottom a {
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.section13__inscription__bottom button {
+    background-color: #42AB9E;
+    height: 40px;
+    padding-top: 2px;
+    font-size: 0.9rem;
+    width: 90px;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 3px;
+    border: none;
+}
+
+/* ------------------------------- mobile-wide ------------------------------ */
+@media (min-width: 575.98px) and (max-width: 767.98px) {
+    .section13 {
+        height: 190vh;
+    }
+
+    .section13__title {
+        top: 12%;
+        left: 45%;
+    }
+
+    .section13__title h1 {
+        font-size: 4rem;
+    }
+
+    .section13__title img {
+        width: 400px;
+    }
+
+    .section13__inscription {
+        width: 400px;
+        height: 500px;
+        padding: 25px 45px;
+        margin-top: 30vh;
+    }
+
+    .section13__inscription h2 {
+        font-size: 1.5rem;
+    }
+
+    .section13__inscription__bottom {
+        margin-top: 30px;
+        height: 120px;
+    }
+}
+
+/* --------------------------------- tablet --------------------------------- */
+@media (min-width: 767.98px) {
+
+    .section13 {
+        height: 140vh;
+    }
+
+    .section13__title {
+        top: 13%;
+        left: 48%;
+        width: 85%;
+    }
+
+    .section13__title h1 {
+        font-size: 4rem;
+    }
+
+    .section13__title img {
+        width: 400px;
+    }
+
+    .section13__inscription {
+        width: 400px;
+        height: 500px;
+        padding: 25px 45px;
+        transform: translateY(-20%);
+        margin-right: 0;
+    }
+
+    .section13__inscription h2 {
+        font-size: 1.5rem;
+    }
+
+    .section13__inscription .input-data3 {
+        margin-top: 25px;
+    }
+
+    .section13__inscription__bottom {
+        height: 110px;
+    }
+}
+
+/* --------------------------------- desktop -------------------------------- */
+@media (min-width: 1065px) {
+
+    .section13 {
+        height: 100vh;
+    }
+
+    .section13__topbar {
+        right: 50px;
+    }
+
+    .section13__title {
+        width: 90vw;
+    }
+
+    .section13__title h1 {
+        font-size: 4.5rem;
+    }
+
+    .section13__title img {
+        width: 550px;
+    }
+
+    .section13::before {
+        height: 120%;
+    }
+
+    .section13__inscription {
+        transform: translateY(-30%);
+    }
+
+    .section13__inscription h2 {
+        font-size: 1.6rem;
+    }
+
+    .input-data3 input:focus~label, .input-data3 textarea:focus~label, .input-data3 textarea:valid~label, .input-data3 input:valid~label {
+        font-size: 1rem;
+    }
+    
+    .section13__inscription .input-data3 label {
+        font-size: 1.3rem;
+    }
+
+    input[type="checkbox"] + label {
+        font-size: 1.1rem;
+    }
+
+    .section13__inscription__bottom a {
+        font-size: 1rem;
+        width: 190px;
+    }
+    
+    .section13__inscription__bottom button{
+        background-color: #42AB9E;
+        height: 40px;
+        margin-top: 5px;
+        font-size: 1rem;
+        width: 100px;
+    }
+
+    .section13__inscription__bottom {
+        flex-direction: row;
+        margin-top: 70px;
+        height: 50px;
+    }
+}
+
+/* ------------------------------ desktop-inter ----------------------------- */
+
+@media (min-width: 1200px)
+{
+    .section13__title {
+        width: 80vw;
+        top: 10%;
+    }
+}
+
+@media (min-width: 1300px)
+{
+    .section13__title {
+        top: 20%;
+    }
+
+    .section13__inscription {
+        transform: translateY(-90%);
+    }
+
+    .section13__inscription h2 {
+        font-size: 1.8rem;
+    }
+
+    .input-data3 input:focus~label, .input-data3 textarea:focus~label, .input-data3 textarea:valid~label, .input-data3 input:valid~label {
+        font-size: 1rem;
+    }
+    
+    .section13__connexion .input-data3 label {
+        font-size: 1.4rem;
+    }
+
+    input[type="checkbox"] + label {
+        font-size: 1rem;
+    }
+
+    .section13__inscription__bottom a {
+        font-size: 1.05rem;
+        width: 260px;
+    }
+    
+    .section13__inscription__bottom button {
+        background-color: #42AB9E;
+        height: 40px;
+        margin-top: 5px;
+        font-size: 1.1rem;
+        width: 130px;
+    }
+
+    .section13__inscription__bottom {
+        flex-direction: row;
+        margin-top: 70px;
+        height: 50px;
+    }
+}
+
+/* ------------------------------ desktop-large ----------------------------- */
+@media (min-width: 1560px) {
+    .section13__topbar {
+        right: 45px;
+    }
+
+    .section13::before {
+        background-size: 120%;
+    }
+
+    .section13__title {
+        width: 75vw;
+    }
+
+    .section13__title h1 {
+        font-size: 6.5rem;
+    }
+
+    .section13__title img {
+        width: 650px;
+    }
+    
+    .section13__topbar a {
+        font-size: 1.2rem;
+    }
+
+    .section13__inscription {
+        width: 500px;
+        height: 600px;
+        transform: translateY(-90%);
+    }
+
+    .section13__inscription .input-data3 {
+        height: 40px;
+        width: 100%;
+        position: relative;
+        margin-top: 40px;
+    }
+
+    .section13__inscription h2 {
+        font-size: 2.2rem;
+    }
+
+    .input-data3 input:focus~label, .input-data3 textarea:focus~label, .input-data3 textarea:valid~label, .input-data3 input:valid~label {
+        font-size: 1.2rem;
+    }
+    
+    .section13__inscription .input-data3 label {
+        font-size: 1.5rem;
+    }
+
+    input[type="checkbox"] + label {
+        font-size: 1.2rem;
+    }
+
+    .remember3 {
+        margin-top: 40px;
+    }
+
+    .section13__inscription__bottom a {
+        width: 250px;
+        font-size: 1.3rem;
+    }
+    
+    .section13__inscription__bottom button {
+        background-color: #42AB9E;
+        height: 50px;
+        margin-top: 5px;
+        font-size: 1.3rem;
+        width: 120px;
+    }
+
+    .section13__inscription__bottom {
+        flex-direction: row;
+        margin-top: 90px;
+        height: 50px;
+    }
+
+}
