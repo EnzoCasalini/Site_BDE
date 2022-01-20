@@ -49,6 +49,15 @@
                         <span> <?php if (isset($secondpost['post_content'])) { echo $secondpost['post_content']; }?> </span>
                     </div>
                 </div>
+                <div class="news">
+                <?php if (isset($thirdpost['post_image'])) { echo '<img src="./assets/IMG/Posts/' . $thirdpost['post_image'] . '" alt="Img">'; } ?>
+                    <div class="news__text">
+                    <!-- Le implode/explode etc en dessous permet de diviser la date de mysql, la reverse et mettre des / entre chaque chiffres pour passer de la date anglaise à française. !-->
+                    <p> <?php if (isset($thirdpost['post_mel'])) { $date_en_fr = implode('/',array_reverse(explode('-',$thirdpost['post_mel'])));  echo $date_en_fr; }?></p>
+                        <h2> <?php if (isset($thirdpost['post_title'])) { echo $thirdpost['post_title']; }?> </h2>
+                        <span> <?php if (isset($thirdpost['post_content'])) { echo $thirdpost['post_content']; }?> </span>
+                    </div>
+                </div>
             </div>
 
         </section>

@@ -4,7 +4,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/../inc/functions_user.php');
 
 $firstpost = newPost(1, $bdd);
 $secondpost = newPost(2, $bdd);
-
+$thirdpost = newPost(3, $bdd);
 
 
 $title = "Home";
