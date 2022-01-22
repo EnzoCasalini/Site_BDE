@@ -211,5 +211,4 @@ function newPost(int $postnumber, PDO $bdd)
         return $data;
     }
 }
-
 ?>
