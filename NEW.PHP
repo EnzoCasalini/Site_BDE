@@ -3,10 +3,10 @@ $bdd = new PDO("mysql:host=127.0.0.1; dbname=articles;charset=utf8" , "root" , "
 
 $edition = 0;
 
-if(isset($_GET['edit'])  AND  !empty($_GET['edit']))
+if(isset($_POST['edit'])  AND  !empty($_POST['edit']))
 {
     $edition = 1;//on passe en mode edition de l'article
-    $edit_id = htmlspecialchars($_GET['edit']);
+    $edit_id = htmlspecialchars($_POST['edit']);
     $edit_article = $bdd->prepare('SELECT * FROM articles WHERE id = ?');
     $edit_article->execute(array($edit_id));
 
