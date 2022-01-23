@@ -56,11 +56,11 @@
                         <a href="/logout">Se déconnecter</a>
                     </div>
                     <?php
-                            if (isset($success))
-                            {
-                                echo "<p style='color:green'>" . $success . "</p>";
-                            }
-                        ?>
+                        if (isset($success))
+                        {
+                            echo "<p style='color:green'>" . $success . "</p>";
+                        }
+                    ?>
                     <div class="section12__gestion__profil">
                         <h2>Gestion</h2>
                         <form method="post" enctype="multipart/form-data">
@@ -78,7 +78,6 @@
                                 output.src = URL.createObjectURL(event.target.files[0]);
                             };
                             </script>
-
                         </div>
                         <?php
                             if (isset($error_pp))
@@ -94,6 +93,26 @@
                                     if (isset($error_nickname))
                                     {
                                         echo "<p style='color:red'>" . $error_nickname . "</p>";
+                                    }
+                                ?>
+                            </div>
+                            <div class="input-data2">
+                                <input type="text" name='user_mail' placeholder=<?php if (isset($_SESSION['user_mail'])) { echo $_SESSION['user_mail']; } ?> onkeydown="if(event.keyCode==32) return false;">
+                                <div class="underline2"></div>
+                                <?php
+                                    if (isset($error_mail))
+                                    {
+                                        echo "<p style='color:red'>" . $error_mail . "</p>";
+                                    }
+                                ?>
+                            </div>
+                            <div class="input-data2">
+                                <input type="password" name='user_pwd' placeholder="Password" onkeydown="if(event.keyCode==32) return false;">
+                                <div class="underline2"></div>
+                                <?php
+                                    if (isset($error_pwd))
+                                    {
+                                        echo "<p style='color:red'>" . $error_pwd . "</p>";
                                     }
                                 ?>
                             </div>
