@@ -140,6 +140,21 @@
                         <button type="submit" name="Save">Enregistrer</button>
                         </form>
                     </div>
+                    <div class="section12__admin">
+                        <h2>PostForum</h2>
+                        <div class="section12__admin__utilisateur ">
+                            <ul>
+                                <?php while ($a = $articles->fetch()) { ?>
+                                    <li>
+                                        <?= $a['post_title'] ?> |
+                                        <form method="post"><button type="submit"><input type="number" value="<?= $a['id_post'] ?>" name="modif">Modifier</button></form>
+                                        <form method="post"><button type="submit"><input type="number" value="<?= $a['id_post'] ?>" name="suppost">Supprimer</button></form>
+                                    </li>
+                                <?php } ?>
+
+                                <ul>
+                        </div>
+                    </div>
                 </div>
             </div>
 
