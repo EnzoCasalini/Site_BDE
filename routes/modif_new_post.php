@@ -15,16 +15,14 @@ if (isset($_POST['titre'], $_POST['contenu'])) {
     $contenu = $_POST['contenu'];
 
     if ($edition == 0) {
-        $insertion = $bdd->prepare('INSERT INTO post (post_title, post_content, post_mel) VALUES (?,?, NOW())'); //on insere les donnees dans la table article
-        $insertion->execute(array($titre, $contenu)); //ce sont les valeurs que l'on mettra a la place des ?
-        $message = 'Votre article est poste !!';
+        $insertion = $bdd->prepare('INSERT INTO post (post_title, post_content, id_user) VALUES (?,?,?)'); //on insere les donnees dans la table article
+        $insertion->execute(array($titre, $contenu,$_SESSION['id_user'])); //ce sont les valeurs que l'on mettra a la place des ?
+        header('Location: /');
     } else {
-        $update = $bdd->prepare('UPDATE post SET post_title = ? , post_content = ? WHERE id_post = ?');
+        $update = $bdd->prepare('UPDATE post SET post_title = ? , post_content = ? , post_modif = NOW() WHERE id_post = ?');
         $update = $update->execute(array($titre, $contenu,$_COOKIE['id']));
-        $message = 'Votre article est a jour !!';
+        header('Location: /');
     }
-} else {
-    $message = 'Remplissez tous les champs svp !!'; //si le champ existe mais qu'ils sont pas tous les deux remplis ont met une erreur
 }
 
 if ($edition == 1){

@@ -2,15 +2,12 @@
     <section class="site">
         <section class="section1">
             <div class="section1__topbar">
-                <?php 
-                    if (isset($_SESSION['user_name']))
-                    {
-                        echo '<a href="/profile">' . $_SESSION['user_name']; 
-                    }
-                    else 
-                    {
-                        echo '<a href="/connexion">CONNEXION';
-                    }
+                <?php
+                if (isset($_SESSION['user_name'])) {
+                    echo '<a href="/profile">' . $_SESSION['user_name'];
+                } else {
+                    echo '<a href="/connexion">CONNEXION';
+                }
                 ?>
                 </a>
                 <div class="burger" id="burger-icon">
@@ -32,31 +29,19 @@
 
         <section class="section2">
             <div class="section2__news">
+                <form method="post"><button type="submit"><input name="newpost">Nouveau Post</button></form>
                 <div class="news">
-                <?php if (isset($firstpost['post_image'])) { echo '<img src="./assets/IMG/Posts/' . $firstpost['post_image'] . '" alt="Img">'; } ?>
-                    <div class="news__text">
-                    <p> <?php if (isset($firstpost['post_mel'])) { $date_en_fr = implode('/',array_reverse(explode('-',$firstpost['post_mel'])));  echo $date_en_fr; }?></p>
-                        <h2> <?php if (isset($firstpost['post_title'])) { echo $firstpost['post_title']; }?> </h2>
-                        <span> <?php if (isset($firstpost['post_content'])) { echo $firstpost['post_content']; }?> </span>
-                    </div>
-                </div>
-                <div class="news">
-                <?php if (isset($secondpost['post_image'])) { echo '<img src="./assets/IMG/Posts/' . $secondpost['post_image'] . '" alt="Img">'; } ?>
-                    <div class="news__text">
-                    <!-- Le implode/explode etc en dessous permet de diviser la date de mysql, la reverse et mettre des / entre chaque chiffres pour passer de la date anglaise à française. !-->
-                    <p> <?php if (isset($secondpost['post_mel'])) { $date_en_fr = implode('/',array_reverse(explode('-',$secondpost['post_mel'])));  echo $date_en_fr; }?></p>
-                        <h2> <?php if (isset($secondpost['post_title'])) { echo $secondpost['post_title']; }?> </h2>
-                        <span> <?php if (isset($secondpost['post_content'])) { echo $secondpost['post_content']; }?> </span>
-                    </div>
-                </div>
-                <div class="news">
-                <?php if (isset($thirdpost['post_image'])) { echo '<img src="./assets/IMG/Posts/' . $thirdpost['post_image'] . '" alt="Img">'; } ?>
-                    <div class="news__text">
-                    <!-- Le implode/explode etc en dessous permet de diviser la date de mysql, la reverse et mettre des / entre chaque chiffres pour passer de la date anglaise à française. !-->
-                    <p> <?php if (isset($thirdpost['post_mel'])) { $date_en_fr = implode('/',array_reverse(explode('-',$thirdpost['post_mel'])));  echo $date_en_fr; }?></p>
-                        <h2> <?php if (isset($thirdpost['post_title'])) { echo $thirdpost['post_title']; }?> </h2>
-                        <span> <?php if (isset($thirdpost['post_content'])) { echo $thirdpost['post_content']; }?> </span>
-                    </div>
+                    <ul>
+                        <?php while ($a = $post->fetch()) { ?>
+                            <li>
+                                <div class="news__text">
+                                    <p> poster le <?php echo $a['post_mel'];?> par <?php for ($i = 0; $i < sizeof($u); $i++) { if($u[$i]['id_user'] == $a['id_user']){ echo $u[$i]['user_name']; }} if($a['post_modif'] != NULL){?> / modifier le <?php echo $a['post_modif'];}?></p>
+                                    <h2> <?php echo $a['post_title']; ?> </h2>
+                                    <span> <?php echo $a['post_content']; ?> </span>
+                                </div>
+                            </li>
+                        <?php } ?>
+                    </ul>
                 </div>
             </div>
 
