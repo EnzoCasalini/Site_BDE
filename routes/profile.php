@@ -77,11 +77,27 @@ if (isset($_POST['Save']))
             $error_pwd = "Mot de passe invalide (Il faut au moins 1 maj, 1 chiffre et 8 caractères";
         }
 
-
     }else $error_form = "Un ou plusieurs champs ne sont pas remplis";
 }
 
 $title = "Profile";
+
+
+// GESTION DES POSTS
+
+if (isset($_POST['suppost'])){
+    $supprpost = $bdd->prepare('DELETE FROM post WHERE id_post = ?');
+    $supprpost->execute(array($_POST['suppost']));
+}
+
+if (isset($_POST['modif'])){
+    setcookie("id", $_POST['modif']);
+    setcookie("type", "modif");
+    header("Location: /modif_new_post");
+}
+
+$articles = $bdd->prepare('SELECT * FROM post WHERE id_user = ? ORDER BY post_mel DESC');
+$articles->execute(array($_SESSION['id_user']));
 
 require_once($_SERVER['DOCUMENT_ROOT'] . '/../inc/templates/header.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/../inc/templates/profile_page.php');
