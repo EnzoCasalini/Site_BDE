@@ -21,6 +21,17 @@
                         <h2>Mon profil</h2>
                         <p>
                             <?php 
+                            if (isset($_SESSION['admin']))
+                            {
+                                if ($_SESSION['admin']== 1)
+                                {
+                                echo "/Admin"; 
+                                }
+                            }
+                            ?>
+                        </p>
+                        <p>
+                            <?php 
                             if (isset($_SESSION['user_role']))
                             {
                                 echo $_SESSION['user_role']; 
@@ -54,6 +65,15 @@
                             </span>
                         </div>
                         <a href="/logout">Se déconnecter</a>
+                        <?php 
+                            if (isset($_SESSION['admin']))
+                            {
+                                if ($_SESSION['admin']== 1)
+                                {
+                                echo '<a href="/admin_panel">Admin Panel /</a>'; 
+                                }
+                            }
+                        ?>
                     </div>
                     <?php
                         if (isset($success))

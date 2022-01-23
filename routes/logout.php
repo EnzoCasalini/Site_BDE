@@ -2,6 +2,9 @@
 
 session_unset();
 
-header('Location: /');
+unset($_COOKIE['id']);
+unset($_COOKIE['type']); 
+
+header('Location: /connexion');
 
 ?>

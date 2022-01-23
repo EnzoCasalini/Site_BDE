@@ -76,6 +76,49 @@ function connect (string $email, string $password, PDO $bdd)
     } else return 1;
 }
 
+function connect_admin (string $email, string $password, PDO $bdd)
+{
+    $verify = $bdd->prepare('SELECT id_user, user_name, user_mail, user_role, user_pwd, user_pp, admin FROM user WHERE user_mail = ?');
+    $verify->execute(array($email));
+    // On lit la ligne correspondante.
+    $data = $verify->fetch();
+    // On vérifie si l'adresse mail rentrée existe bien dans notre BDD.
+    $row = $verify->rowCount();
+
+    if ($row == 1)
+    {
+        if (!empty($data) && password_verify($password, $data['user_pwd']))
+        {
+            if ($data['admin'] == 0){
+                return 2;
+            }else{
+                
+            $_SESSION['connected'] = true;
+            $_SESSION['id_user'] = $data['id_user'];
+            $_SESSION['user_name'] = $data['user_name'];
+            $_SESSION['user_mail'] = $data['user_mail'];
+            $_SESSION['user_role'] = $data['user_role'];
+            $_SESSION['user_pp'] = $data['user_pp'];
+            $_SESSION['admin'] = 1;
+
+            /* Gestion de l'écriture des logs dans un fichier */
+
+            $file = fopen("../public/log.txt", "a");
+            date_default_timezone_set('Europe/Paris');
+            // On récupère la date d'aujourd'hui sous la forme d'un tableau.
+            $todayDate=getdate();
+            // mday = jour du mois / mon = mois / year = année.
+            $day = $todayDate["mday"] ."/". $todayDate["mon"] . "/" .$todayDate["year"];
+            $hour = $todayDate["hours"] ."H". $todayDate["minutes"];
+            $d = $day ." à ". $hour;
+            fwrite($file, $_SESSION['user_name'] . " (admin) : " . $_SESSION['user_mail'] . " s'est connecté(e) le " . $d . "\r\n");
+            fclose($file);
+            }
+        } else return false;
+    } else return 1;
+}
+
+
 
 // VÉRIFICATION ET CHANGEMENT DE LA PP.
 
@@ -235,5 +278,4 @@ function updating(int $user_id, PDO $bdd)
         } else return false;
     } else echo 'aïe !';
 }
-
 ?>
