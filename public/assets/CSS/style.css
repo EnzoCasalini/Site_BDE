@@ -158,18 +158,32 @@ body {
     margin: auto;
 }
 
+.section2__news input {
+    display: none;
+    
+}
+
+.section2__news button {
+    position: relative;
+    background-color: #42AB9E;
+    color: #FFFFFF;
+    padding: 10px;
+    border-radius: 25px;
+    border: none;
+    bottom: 10px;
+}
+
+.section2__news button:hover{
+    background-color: #245f58;
+}
+
 .news {
     height: 70vh;
     margin-bottom: 15vh;
 }
 
 .news__text {
-    display: flex;
-    text-align: justify;
-    margin-top: 4vh;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 22vh;
+    margin-top: 50px;
 }
 
 .news__text p {
@@ -286,12 +300,6 @@ body {
     .news:nth-child(odd) {
         display: flex;
         flex-direction: row;
-        height: 45vh;
-    }
-
-    .news:nth-child(even) {
-        display: flex;
-        flex-direction: row-reverse;
         height: 45vh;
     }
 

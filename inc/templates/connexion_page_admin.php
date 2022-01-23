@@ -9,11 +9,11 @@
             </div>
 
             <div class="section11__title">
-                <h1>CONNEXION</h1>
+                <h1>CONNEXION ADMIN</h1>
                 <img src="./assets/IMG/Ynov.svg" alt="Ynov Sophia Campus">
                 <form method="post">
                     <div class="section11__connexion">
-                        <h2>CONNEXION</h2>
+                        <h2>CONNEXION ADMIN</h2>
                         <div class="input-data1">
                             <input type="text" onkeydown="if(event.keyCode==32) return false;" name="user_mail" <?php if(isset($email)) { echo 'value="'.$email.'"';} ?> required>
                             <div class="underline1"></div>
@@ -43,6 +43,10 @@
                                 {
                                     echo "<p style='color:red'>". $error_alr . "</p>";
                                 }
+                                if (isset($error_admin))
+                                {
+                                    echo "<p style='color:red'>". $error_admin . "</p>";
+                                }
                             ?>
                         </div>
                         <input type="checkbox" class="remember1" name="remember">
@@ -50,7 +54,7 @@
                         <div class="section11__connexion__bottom">
                             <a href="/subscribe">Vous n'avez pas de compte ? Créez un compte !</a>
                             <button type="submit" name="SendSub">Connexion</button>
-                            <a href="/login_admin">Vous êtes admin ? Connectez vous ici !</a>
+                            <a href="/connexion">Vous n'êtes pas admin ? Connectez vous ici !</a>
                         </div>
                     </div>
                 </form>
