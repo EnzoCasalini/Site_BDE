@@ -1,7 +1,11 @@
 <?php
 
 require_once($_SERVER['DOCUMENT_ROOT'] . '/../inc/functions_user.php');
-require_once($_SERVER['DOCUMENT_ROOT'] . "/../inc/CSRF.php");
+
+if (isset($_POST['token']))
+{
+    checkToken($_POST['token']);
+}
 
 if (isset($_POST['user'])){
     $suppruser = $bdd->prepare('DELETE FROM user WHERE id_user = ?');
@@ -16,6 +20,7 @@ if (isset($_POST['modif'])){
     setcookie("type", "modif");
     header("Location: /modif_new_post");
 }
+
 
 
 $title = "Admin";

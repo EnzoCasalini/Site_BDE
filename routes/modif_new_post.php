@@ -1,6 +1,5 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'] . '/../inc/functions_user.php');
-require_once($_SERVER['DOCUMENT_ROOT'] . "/../inc/CSRF.php");
 
 if (isset($_COOKIE['type'])) {
     if ($_COOKIE['type'] == "modif") {
@@ -8,6 +7,11 @@ if (isset($_COOKIE['type'])) {
     }elseif ($_COOKIE['type'] == "new") {
         $edition = 0;
     }
+}
+
+if (isset($_POST['token']))
+{
+    checkToken($_POST['token']);
 }
 
 if (isset($_POST['titre'], $_POST['contenu'])) {

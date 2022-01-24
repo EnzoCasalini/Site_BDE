@@ -83,7 +83,7 @@
                     ?>
                     <div class="section12__gestion__profil">
                         <h2>Gestion</h2>
-                        <form method="post" enctype="multipart/form-data" action="submit.php">
+                        <form method="post" enctype="multipart/form-data">
                         <div class="section12__gestion__profil__pp">
                             <?php
                             if (isset($_SESSION['user_pp']))
@@ -137,6 +137,7 @@
                                 ?>
                             </div>
                         </div>
+                        <input type="hidden" name="token" value="<?=$_SESSION["token"]?>"/>
                         <button type="submit" name="Save">Enregistrer</button>
                         </form>
                     </div>
@@ -147,8 +148,8 @@
                                 <?php while ($a = $articles->fetch()) { ?>
                                     <li>
                                         <?= $a['post_title'] ?> |
-                                        <form method="post" action="submit.php"><button type="submit"><input type="number" value="<?= $a['id_post'] ?>" name="modif">Modifier</button></form>
-                                        <form method="post" action="submit.php"><button type="submit"><input type="number" value="<?= $a['id_post'] ?>" name="suppost">Supprimer</button>
+                                        <form method="post"><input type="hidden" name="token" value="<?=$_SESSION["token"]?>"/><button type="submit"><input type="number" value="<?= $a['id_post'] ?>" name="modif">Modifier</button></form>
+                                        <form method="post"><input type="hidden" name="token" value="<?=$_SESSION["token"]?>"/><button type="submit"><input type="number" value="<?= $a['id_post'] ?>" name="suppost">Supprimer</button>
                                     </form>
                                     </li>
                                 <?php } ?>

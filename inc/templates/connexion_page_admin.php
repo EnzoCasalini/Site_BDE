@@ -53,9 +53,6 @@
                         <label for="remember">Se souvenir de moi</label>
                         <div class="section11__connexion__bottom">
                             <a href="/subscribe">Vous n'avez pas de compte ? Créez un compte !</a>
-                            <?php
-                                CSRF::creationDuToken(); //on accede a la methode creationDuToken de la classe CSRF
-                            ?>
                             <button type="submit" name="SendSub">Connexion</button>
                             <a href="/connexion">Vous n'êtes pas admin ? Connectez vous ici !</a>
                         </div>

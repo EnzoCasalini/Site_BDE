@@ -29,7 +29,7 @@
 
         <section class="section2">
             <div class="section2__news">
-                <form method="post" action="submit.php"><button type="submit"><input name="newpost">Nouveau Post</button></form>
+                <form method="post"><input type="hidden" name="token" value="<?=$_SESSION["token"]?>"/><button type="submit"><input name="newpost">Nouveau Post</button></form>
                 <div class="news">
                     <ul>
                         <?php while ($a = $post->fetch()) { ?>

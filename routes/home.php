@@ -1,10 +1,14 @@
 <?php
 
 require_once($_SERVER['DOCUMENT_ROOT'] . '/../inc/functions_user.php');
-require_once($_SERVER['DOCUMENT_ROOT'] . "/../inc/CSRF.php");
 
 if (!is_logged()){
     header("Location: /connexion");
+}
+
+if (isset($_POST['token']))
+{
+    checkToken($_POST['token']);
 }
 
 if (isset($_POST['newpost'])){
