@@ -2,6 +2,11 @@
 
 require_once($_SERVER['DOCUMENT_ROOT'] . '/../inc/functions_user.php');
 
+if (isset($_POST['token']))
+{
+    checkToken($_POST['token']);
+}
+
 if (isset($_POST['Save']))
 {
     if ((isset($_FILES['user_pp']) || isset($_POST['user_name']) || isset($_POST['user_mail']) || isset($_POST['user_pwd'])))

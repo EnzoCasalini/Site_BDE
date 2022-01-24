@@ -53,7 +53,9 @@ function connect (string $email, string $password, PDO $bdd)
     {
         if (!empty($data) && password_verify($password, $data['user_pwd']))
         {
-            $_SESSION['connected'] = true;
+            $_SESSION['connected'] = true; 
+            $_SESSION["token"] = bin2hex(random_bytes(32));
+            //$_SESSION["token-expire"] = time() + 3600;
             $_SESSION['id_user'] = $data['id_user'];
             $_SESSION['user_name'] = $data['user_name'];
             $_SESSION['user_mail'] = $data['user_mail'];
@@ -94,6 +96,8 @@ function connect_admin (string $email, string $password, PDO $bdd)
             }else{
                 
             $_SESSION['connected'] = true;
+            $_SESSION["token"] = bin2hex(random_bytes(32));
+            //$_SESSION["token-expire"] = time() + 3600;
             $_SESSION['id_user'] = $data['id_user'];
             $_SESSION['user_name'] = $data['user_name'];
             $_SESSION['user_mail'] = $data['user_mail'];
@@ -277,6 +281,21 @@ function updating(int $user_id, PDO $bdd)
             return true;
         } else return false;
     } else echo 'aïe !';
+}
+
+function checkToken($oula)
+{
+    if (!isset($oula) || !isset($_SESSION["token"])) {
+        exit("Token is not set!");
+      }
+      
+      // (C) COUNTER CHECK SUBMITTED TOKEN AGAINST SESSION
+      if ($_SESSION["token"]==$oula) {
+        echo "ok";
+      }
+      
+      // (C) INVALID TOKEN
+      else { echo "Invalid Token"; }      
 }
 
 ?>

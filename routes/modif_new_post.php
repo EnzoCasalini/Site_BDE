@@ -9,6 +9,11 @@ if (isset($_COOKIE['type'])) {
     }
 }
 
+if (isset($_POST['token']))
+{
+    checkToken($_POST['token']);
+}
+
 if (isset($_POST['titre'], $_POST['contenu'])) {
 
     $titre = $_POST['titre']; //on securise avec htmlspecialchars dans le but qu'aucun utilisateur puisse mettre du code malveillant

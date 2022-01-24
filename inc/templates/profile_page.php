@@ -137,16 +137,8 @@
                                 ?>
                             </div>
                         </div>
-                        <?php
-                            CSRF::creationDuToken(); //on accede a la methode creationDuToken de la classe CSRF
-                        ?>
+                        <input type="hidden" name="token" value="<?=$_SESSION["token"]?>"/>
                         <button type="submit" name="Save">Enregistrer</button>
-                        <?php
-                            if(!CSRF::TokenValide($_POST["token"]))
-                            {
-                                echo "Hacker toi être, moi pas aimer toi";
-                            }
-                        ?>
                         </form>
                     </div>
                     <div class="section12__admin">
@@ -156,26 +148,8 @@
                                 <?php while ($a = $articles->fetch()) { ?>
                                     <li>
                                         <?= $a['post_title'] ?> |
-                                        <?php
-                                            CSRF::creationDuToken(); //on accede a la methode creationDuToken de la classe CSRF
-                                        ?>
-                                        <form method="post"><button type="submit"><input type="number" value="<?= $a['id_post'] ?>" name="modif">Modifier</button>
-                                        <?php
-                                        if(!CSRF::TokenValide($_POST["token"]))
-                                        {
-                                            echo "Hacker toi être, moi pas aimer toi";
-                                        }
-                                        ?></form>
-                                        <?php
-                                            CSRF::creationDuToken(); //on accede a la methode creationDuToken de la classe CSRF
-                                        ?>
-                                        <form method="post"><button type="submit"><input type="number" value="<?= $a['id_post'] ?>" name="suppost">Supprimer</button>
-                                        <?php
-                                        if(!CSRF::TokenValide($_POST["token"]))
-                                        {
-                                            echo "Hacker toi être, moi pas aimer toi";
-                                        }
-                                        ?>
+                                        <form method="post"><input type="hidden" name="token" value="<?=$_SESSION["token"]?>"/><button type="submit"><input type="number" value="<?= $a['id_post'] ?>" name="modif">Modifier</button></form>
+                                        <form method="post"><input type="hidden" name="token" value="<?=$_SESSION["token"]?>"/><button type="submit"><input type="number" value="<?= $a['id_post'] ?>" name="suppost">Supprimer</button>
                                     </form>
                                     </li>
                                 <?php } ?>

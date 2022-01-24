@@ -6,6 +6,11 @@ if (!is_logged()){
     header("Location: /connexion");
 }
 
+if (isset($_POST['token']))
+{
+    checkToken($_POST['token']);
+}
+
 if (isset($_POST['newpost'])){
     setcookie("type", "new");
     header("Location: /modif_new_post");

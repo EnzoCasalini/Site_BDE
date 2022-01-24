@@ -6,6 +6,11 @@ if (is_logged()) {
     header('Location: /');
 }
 
+if (isset($_POST['token']))
+{
+    checkToken($_POST['token']);
+}
+
 if (isset($_POST['SendSub']))
 {
     if (isset($_POST['user_mail']) && isset($_POST['user_pwd']))
