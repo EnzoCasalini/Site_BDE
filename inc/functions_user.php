@@ -278,4 +278,5 @@ function updating(int $user_id, PDO $bdd)
         } else return false;
     } else echo 'aïe !';
 }
+
 ?>

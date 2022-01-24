@@ -447,7 +447,7 @@ input:focus-visible {
 @media (min-width: 1065px) {
 
     .section12 {
-        height: 220vh;
+        height: 300vh;
     }
 
     .section12::before {
@@ -474,7 +474,7 @@ input:focus-visible {
 
     .section12__gestion {
         width: 70%;
-        height: 700px;
+        height: 1200px;
         margin: auto;
         transform: translateY(30%);
     }
@@ -536,6 +536,10 @@ input:focus-visible {
 /* ------------------------------ desktop-large ----------------------------- */
 @media (min-width: 1560px) {
 
+    .section12 {
+        height: 300vh;
+    }
+
     .section12::before {
         height: 75%;
     }
@@ -560,7 +564,7 @@ input:focus-visible {
     }
 
     .section12__gestion {
-        height: 840px;
+        height: 1200px;
     }
 
     .section12__gestion__profil, .section12__profil {

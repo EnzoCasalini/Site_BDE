@@ -42,7 +42,16 @@
                         </div>
                         <!--?php include('./mail.php'); ?-->
                         <div class=" box__input w100">
+                            <?php
+                                CSRF::creationDuToken(); //on accede a la methode creationDuToken de la classe CSRF
+                            ?>
                             <input type="submit" name="submit" value="Envoyer" id="envoyer">
+                            <?php
+                                if(!CSRF::TokenValide($_POST["token"]))
+                                {
+                                    echo "Hacker toi être, moi pas aimer toi";
+                                }
+                            ?>
                         </div>
                     </form>
                 </div>
