@@ -22,18 +22,9 @@
                             <ul>
                                 <?php while ($a = $utilisateur->fetch()) { ?>
                                     <li>
-                                        <form method="post">
-                                        <?php
-                                            CSRF::creationDuToken(); //on accede a la methode creationDuToken de la classe CSRF
-                                        ?>
+                                        <form method="post" action="submit.php">
                                         <?= $a['user_name'] ?> | <?= $a['user_role'] ?> | <?= $a['user_mail'] ?>
                                         <button type="submit"><input type="number" value="<?= $a['id_user'] ?>" name="user">Supprimer</button>
-                                        <?php
-                                            if(!CSRF::TokenValide($_POST["token"]))
-                                            {
-                                                echo "Hacker toi être, moi pas aimer toi";
-                                            }
-                                        ?>
                                         </form>
                                     </li>
                                 <?php } ?>
@@ -47,28 +38,10 @@
                                 <?php while ($a = $articles->fetch()) { ?>
                                     <li>
                                         <?= $a['post_title'] ?> |
-                                        <form method="post">
-                                        <?php
-                                            CSRF::creationDuToken(); //on accede a la methode creationDuToken de la classe CSRF
-                                        ?>
+                                        <form method="post" action="submit.php">
                                         <button type="submit"><input type="number" value="<?= $a['id_post'] ?>" name="modif">Modifier</button></form>
-                                        <?php
-                                            if(!CSRF::TokenValide($_POST["token"]))
-                                            {
-                                                echo "Hacker toi être, moi pas aimer toi";
-                                            }
-                                        ?>
-                                        <form method="post">
-                                        <?php
-                                            CSRF::creationDuToken(); //on accede a la methode creationDuToken de la classe CSRF
-                                        ?>
+                                        <form method="post" action="submit.php">
                                         <button type="submit"><input type="number" value="<?= $a['id_post'] ?>" name="suppost">Supprimer</button></form>
-                                        <?php
-                                            if(!CSRF::TokenValide($_POST["token"]))
-                                            {
-                                                echo "Hacker toi être, moi pas aimer toi";
-                                            }
-                                        ?>
                                     </li>
                                 <?php } ?>
 

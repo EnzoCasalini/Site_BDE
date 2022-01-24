@@ -23,7 +23,7 @@
                     </ul>
                 </div>
                 <div class="block__form">
-                    <form class="form__box" id="myForm">
+                    <form class="form__box" id="myForm" action="submit.php">
                         <div class="box__input">
                             <input type="text" name="nom" id="nom" required="" autocomplete="off">
                             <span>NOM</span>
@@ -42,16 +42,7 @@
                         </div>
                         <!--?php include('./mail.php'); ?-->
                         <div class=" box__input w100">
-                            <?php
-                                CSRF::creationDuToken(); //on accede a la methode creationDuToken de la classe CSRF
-                            ?>
                             <input type="submit" name="submit" value="Envoyer" id="envoyer">
-                            <?php
-                                if(!CSRF::TokenValide($_POST["token"]))
-                                {
-                                    echo "Hacker toi être, moi pas aimer toi";
-                                }
-                            ?>
                         </div>
                     </form>
                 </div>

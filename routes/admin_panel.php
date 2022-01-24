@@ -1,6 +1,7 @@
 <?php
 
 require_once($_SERVER['DOCUMENT_ROOT'] . '/../inc/functions_user.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . "/../inc/CSRF.php");
 
 if (isset($_POST['user'])){
     $suppruser = $bdd->prepare('DELETE FROM user WHERE id_user = ?');

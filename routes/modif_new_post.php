@@ -1,5 +1,6 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'] . '/../inc/functions_user.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . "/../inc/CSRF.php");
 
 if (isset($_COOKIE['type'])) {
     if ($_COOKIE['type'] == "modif") {

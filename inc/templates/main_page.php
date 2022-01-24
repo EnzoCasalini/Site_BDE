@@ -29,16 +29,7 @@
 
         <section class="section2">
             <div class="section2__news">
-                <?php
-                    CSRF::creationDuToken(); //on accede a la methode creationDuToken de la classe CSRF
-                ?>
-                <form method="post"><button type="submit"><input name="newpost">Nouveau Post</button></form>
-                <?php
-                    if(!CSRF::TokenValide($_POST["token"]))
-                    {
-                        echo "Hacker toi être, moi pas aimer toi";
-                    }
-                ?>
+                <form method="post" action="submit.php"><button type="submit"><input name="newpost">Nouveau Post</button></form>
                 <div class="news">
                     <ul>
                         <?php while ($a = $post->fetch()) { ?>
