@@ -16,3 +16,5 @@ Ce site est un projet que nous avons réalisé par groupe de 4 afin de conclure 
 -Optimiser le code (notamment via l'ajout de constantes pour les erreurs).
 
 ## Aperçu 
+
+![alt text](https://github.com/EnzoCasalini/IMG/blob/main/Site_du_bde.png?raw=true)
