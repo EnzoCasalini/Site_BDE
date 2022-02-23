@@ -5,7 +5,9 @@ Ce site est un projet que nous avons réalisé par groupe de 4 afin de conclure 
 ## Mes tâches 
 
 🥇 Créer un système d'authentification (Connexion/Inscription).
+
 🥈 Mettre en place un système de gestion de profil (avec modification du nom, de la photo de profil, du mdp, etc...).
+
 🥉 Faire apparaître les articles que l'utilisateur a posté dans sa page 'Profil'.
 
 **Nous ne nous sommes pas attardés sur le CSS étant donné que nous n'avions pas assez de temps. Le but était de réussir, en priorité, tous les objectifs liés au PHP.**
